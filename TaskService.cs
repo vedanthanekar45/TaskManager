@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class TaskService
 {
@@ -21,7 +22,7 @@ public class TaskService
 
     public List<TaskItem> GetAllTasks()
     {
-        return tasks;
+        return tasks.ToList();
     }
 
     public void MarkAsCompleted (int id)
@@ -31,7 +32,6 @@ public class TaskService
         {
             task.isCompleted = true;
         }
-        Console.WriteLine($"Task {id} marked as completed.");
     }
 
     public void DeleteTask (int id)
@@ -41,7 +41,6 @@ public class TaskService
         {
             tasks.Remove(task);
         }
-        Console.WriteLine($"Task {id} deleted.");
     }
 
     public List<TaskItem> GetCompletedTasks ()
